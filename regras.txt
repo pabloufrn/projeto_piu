@@ -1,0 +1,19 @@
+os eventos que aparecem no mapa pertecem às categorias favoritados e obedecem a um raio de alcance determinado pelo usuário.
+
+Ao editar evento todos os usuário participantes serão notificados.
+
+Cada usuário só pode divulgar um estabelecimento.
+
+Cada usuário só pode criar 2 eventos simultâneos
+
+Ao criar um evento em um local que já foi criado, o sistema irá gerar um alerta notificando que já existem um evento naquele ambiente.
+
+Os eventos aparecerão de acordo com um alcance.
+
+
+
+
+
+
+
+Ao clicar em um evento compartilhado o usuário vê as informações do evento. 
