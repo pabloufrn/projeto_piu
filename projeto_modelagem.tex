@@ -12,6 +12,23 @@
 \usepackage{enumitem}
 
 % --------------------
+% Ambientes             |
+% --------------------
+
+\newenvironment{boxed}[1]{
+	\noindent\fbox{
+		\parbox{\textwidth}{
+			\begin{center}
+				{\large \textbf{#1\\[1ex]}}
+			\end{center}
+		}
+	}\bigskip
+	{
+	}
+}
+
+
+% --------------------
 % Inicio do documento |
 % --------------------
 \begin{document}
@@ -81,9 +98,7 @@
 			\end{enumerate}
 		}
 	}\bigskip
-	
-	Gerenciar eventos (CSU02)
-	
+	\begin{boxed}{Gerenciar eventos (CSU02)}
 	Sumário: Usuário consultar eventos criados por ele.
 	
 	Ator Primário: Divulgador.
@@ -91,17 +106,19 @@
 	Precondições: Usuário está autentificado e já criou no mínimo um evento.
 	
 	Fluxo Principal:
+	\begin{enumerate}[itemsep=0mm]
+	 \item Usuário solicita ao sistema eventos criados por ele.
 	
-	1. Usuário solicita ao sistema eventos criados por ele.
+	 \item. Sistema exibi uma lista de eventos cadastrados pelo usuário.
 	
-	2. Sistema exibi uma lista de eventos cadastrados pelo usuário.
+	 \item. Usuário seleciona um dos eventos.
 	
-	3. Usuário seleciona um dos eventos.
+	 \item. Sistema exibe as informações sobre o evento.
 	
-	4. Sistema exibe as informações sobre o evento.
+	 \item. Usuário cancela o evento ou edita as informações e o caso de uso termina.\bigskip
+	\end{enumerate}
 	
-	5. Usuário cancela o evento ou edita as informações e o caso de uso termina.\bigskip
-	
+	\end{boxed}
 	Ver histórico de eventos (CSU03)
 	
 	Sumário: Usuário acessa informações sobre eventos que ele realizou.
