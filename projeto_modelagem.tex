@@ -1,283 +1,442 @@
-% ------------------------
-% Declaração do documento |
-% ------------------------
-\documentclass{article}
-% ----------------------------
-% Pacotes usados no documento |
-% ----------------------------
-\usepackage[utf8]{inputenc}
-\usepackage[left=2cm,top=2cm,right=3cm,bottom=3cm]{geometry}
-\usepackage[ampersand]{easylist}
-\usepackage{graphicx}
-\usepackage{enumitem}
-
-% --------------------
-% Ambientes             |
-% --------------------
-\newcommand{\sumario}[1] {\textbf{Sumário:} #1\\ \medskip}
-
-\newcommand{\ator}[1] {\textbf{Ator Primário:} #1\\ \medskip}
-
-\newcommand{\precond}[1] {\textbf{Precondições:} #1\\ \medskip}
-
-\newcommand{\fluxo}{\textbf{Fluxo Principal:} \medskip}
-
-\renewcommand{\arraystretch}{2}
-
-\newenvironment{boxed}[1]
-    {
-\begin{center}
-    \begin{tabular}{|p{\textwidth}|}
-    \hline
-\begin{center}
-	{\large \textbf{#1}}
-\end{center}
-    }
-    { 
-    \\\\\hline
-    \end{tabular} 
-    \end{center}
-    }
-
-
-% --------------------
-% Inicio do documento |
-% --------------------
-\begin{document}
-\par Nome: Pablo Emanuell Lopes Targino
-\par Matricula: 20170067995 \bigskip \bigskip
-
-	\section{Descrição das telas do sistema} 
-
-	Para a desenhar as interfaces utilizei o software Balsamiq.
+			% ------------------------
+			% Declaração do documento |
+			% ------------------------
+			\documentclass{article}
+			% ----------------------------
+			% Pacotes usados no documento |
+			% ----------------------------
+			\usepackage[utf8]{inputenc}
+			\usepackage[left=2cm,top=2cm,right=3cm,bottom=3cm]{geometry}
+			\usepackage[ampersand]{easylist}
+			\usepackage{graphicx}
+			\usepackage{enumitem}
+			\usepackage{indentfirst}
+			\usepackage{float}
+			\usepackage[portuguese]{babel}
+			% --------------------
+			% Ambientes             |
+			% --------------------
+			\newcommand{\sumario}[1] {\textbf{Sumário:} #1\\ }
+			\newcommand{\ator}[1] {\textbf{Ator Primário:} #1\\}
+			\newcommand{\precond}[1] {\textbf{Precondições:} #1\\}
+			\newcommand{\regras}{\textbf{Regras de negócio: }}
+			\newcommand{\fluxo}{\textbf{Fluxo Principal:}}
+			\newenvironment{fluxoa}[2]
+			{
+			\textbf{Fluxo Alternativo (#1): #2}
+			\begin{enumerate}[itemsep=0mm, label=(\alph*)]			
+			}
+			{
+			\end{enumerate}			
+			}
+			
+			\newenvironment{fluxoe}[2]
+			{
+			\textbf{Fluxo de Exceção (#1): #2}
+			\begin{enumerate}[itemsep=0mm, label=(\alph*)]			
+			}
+			{
+			\end{enumerate}			
+			}
+			
+			\renewcommand{\arraystretch}{2}
+			
+			\newenvironment{boxed}[1]
+			    {
+			\begin{center}
+			    \begin{tabular}{|p{\textwidth}|}
+			    \hline
+			\begin{center}
+				{\large \textbf{#1}}
+			\end{center}
+			    }
+			    { 
+			    \\\\\hline
+			    \end{tabular} 
+			    \end{center}
+			    }
+			
+			% --------------------
+			% Inicio do documento |
+			% --------------------
+			\begin{document}
+			\par Nome: Pablo Emanuell Lopes Targino
+			\par Matricula: 20170067995 \bigskip \bigskip
+			
+				\section{Descrição das telas do sistema} 
+			
+				\par \indent Para a desenhar as interfaces utilizei o Balsamiq, um software para construção de protótipos de baixa fidelidade.
+				A ideia consiste em projetar um aplicativo de divulgação de eventos e novos estabelecimentos, por meio de cadastros feitos pelo usuário.
+				Quando o usuário assumi o papel de divulgador de eventos/estabelecimentos, suas atribuições são:\medskip
+				\begin{easylist}[itemize]
+				& Divulgar um evento/estabelecimento.
+				& Gerenciar seu(s) eventos/estabelecimento.
+				& Ver histórico de eventos realizados por ele.
+				\end{easylist}\medskip
+				Ao divulgar um evento/estabelecimento o usuário deve dizer o que quer divulgar e fornecer o nome do evento, o horário, a localização, uma imagem do evento, uma indicação se o evento é público ou privado e, opcionalmente, observações sobre o evento. As telas que ele usurá para fazer isso serão parecidas com essa:
+				\bigskip
+				
+				
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{tela_cadastro_evento.png}
+				\end{center}
+				\caption{Tela de cadastro de evento ou estabelecimento}
+				\end{figure}
+				
+				
+				
+				\bigskip
+				Ao final do procedimento o evento estará disponível para que os outros usuários que tenham acesso a ele vejam e possam sinalizar sua participação e compartilhar o evento.  
+				
+				Uma vez divulgado o evento ele poderá ser gerenciado - cancelado ou editado. A tela para gerenciar o estabelecimento será a mesma usada para gerenciar os eventos. O protótipo se encontra abaixo:
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{gerenciar_evento.png}
+				\end{center}
+				\caption{Telas de edição de evento e de  estabelecimento}
+				\end{figure}
+				
+				O histórico de eventos realizados pelo divulgador estará disponível ao divulgar seu primeiro evento. Ao acessar esse menu, o usuário poderá ver todas as informações do eventos que já realizou. A tela onde as duas últimas operações serão ativadas será um menu drop-down que será apresentado junto com as operações do papel a seguir. A tela do histórico em si é essa:
+				
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{eventos_criados.png}
+				\end{center}
+				\caption{Tela de histórico de eventos realizados por usuário}
+				\end{figure}
+				
+				Os eventos divulgados no sistema serão usados por pessoas que estão procurando lugares para sair, nesse papel as atribuições do usuário serão as seguintes:\medskip
+				\begin{easylist}[itemize]
+				& Ver eventos disponíveis na região.
+				& Favoritar categorias de evento.
+				& Ver agenda de eventos.
+				& Ver histórico de eventos.
+				\end{easylist}\medskip
+				
+				Antes de apresentar as próximas telas é importante ressaltar onde boa parte dos recursos do aplicativo serão engatilhados, esse lugar é um menu acordeão (dropdown) que está disponível na tela principal do App. A figura que mostra esse menu é:
+				
+				
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{menu_home.png}
+				\end{center}
+				\caption{Menu com várias operações do sistema}
+				\end{figure}
+				
+				A Opção minha conta já tem protótipo, mas ela não será mostrada ainda, por se tratar de uma funcionalidade que pode ser projetada posteriormente para se adaptar ao nível do sistema nas próximas fases.
+				
+				Para ver os eventos o usuário se utilizará de um mapa com coordenadas pré-configuradas para seu local (ou para o evento mais próximo). Os pontos no mapa, possivelmente, terão a mesmo tamanho, pois não queremos que um evento seja mais chamativo que outro. Os eventos que apareceram nesse tela são delimitados pela regra de negócio RN05:
+				
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{mapa.png}
+				\end{center}
+				\caption{Mapa de eventos de interesse do usuário}
+				\end{figure}				
+				
+				As categorias favoritas vão servir para cada usuário ser notificado de eventos recentes que eles poderiam gostar. Na aba principal ele poderá ver todas as categorias e marcar as que ele mais gosta, como pode ser visto na imagem: 
+				
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{fav.png}
+				\end{center}
+				\caption{Tela principal com as categorias}
+				\end{figure}
+				
+				Como o aplicativos é de eventos,  é natural que o usuário queira ter alguma maneira de se lembrar de onde tem que ir. Para isso iremos dispor de uma agenda que conterá as datas do eventos que ele marcou presença. Além disso um aplicativo irá disparar uma notificação em determinado tempo antes do evento. A tela será baseado no protótipo abaixo:
+				
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{agenda.png}
+				\end{center}
+				\caption{Agenda de eventos do usuário}
+				\end{figure}
+				
+				
+				
+				Também é comum que uma pessoa queira se lembrar de onde ela foi determinado dia, essa funcionalidade estará disponível no sistema. A imagem abaixo demonstra como isso será feito:
+				
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[scale=0.3]{hist_eventos.png}
+				\end{center}
+				\caption{Histórico de eventos que o usuário participou (Lembranças)}
+				\end{figure}
+				 
+				\section{Casos de uso} \bigskip
+			
+			Os casos de uso foram feitos com base no recursos essenciais do sistema, o diagrama foi feito utilizando a ferramenta Astah. O DCU está contido na imagem da próxima página.
+		
+				\begin{figure}[H]
+				\begin{center}
+				\includegraphics[width=\textwidth]{usecase.png}
+				\end{center}
+				\caption{Diagrama de casos de uso}
+				\end{figure}
+		
+			Alguns casos de uso estão documentados usando uma descrição numerada extendida com grau de detalhamento essencial, isso tudo está descrito abaixo: 
+		
+			\begin{boxed}{Divulgar evento (CSU01)}
+			\sumario{Usuário cadastra um novo evento ao sistema.}
+			\ator{Divulgador.}
+			\precond{Usuário está autentificado.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			\item Usuário solicita o cadastro de um novo evento.
+			\item Sistema exibe formulário de cadastramento.
+			\item Usuário fornece os dados necessário.
+			\item Sistema cadastra novo evento e o caso de uso termina.
+			\end{enumerate}
+			
+			\begin{fluxoe}{2}{Violação de RN02} 
+			\item Se o usuário não pode mais criar eventos, o sistema reporta o fato e retorna para a tela anterior ao cadastro.
+			\end{fluxoe}
+			\end{boxed}
+		
+			\begin{boxed}{Gerenciar eventos (CSU02)}
+			\sumario{Usuário consultar eventos criados por ele.}
+			\ator{Divulgador.}
+			\precond{Usuário está autentificado e já criou no mínimo um evento.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			 \item Usuário solicita ao sistema eventos criados por ele.
+			 \item Sistema exibi uma lista de eventos cadastrados pelo usuário.
+			 \item Usuário seleciona um dos eventos.
+			 \item Sistema exibe as informações sobre o evento.
+			 \item Usuário observa, cancela ou edita as informações e o caso de uso termina.\bigskip
+			\end{enumerate}
+			\begin{fluxoa}{5}{Notificação de alteração de evento}
+			\item Conforme RN01, os usuário que marcaram participação serão notificados da alteração.
+			\end{fluxoa}
+			\end{boxed}
+		
+			\begin{boxed}{Ver histórico de eventos (CSU03)}
+			\sumario{Usuário acessa informações sobre eventos que ele realizou.}
+			\ator{Divulgador}
+			\precond{Usuário está autentificado e já criou no mínimo um evento.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			\item Usuário solicita ao sistema eventos já realizados por ele.
+			\item Sistema exibi lista de eventos.
+			\item Usuário seleciona um dos eventos.
+			\item Sistema exibe as informações sobre o evento.
+			\item Usuário visualiza as informações e o caso de uso termina.
+			\end{enumerate}
+			\end{boxed}
+			
+			\begin{boxed}{Participar de  eventos (CSU04)}
+			\sumario{Usuário visualiza eventos próximos a ele.}
+			\ator{Usuário procurando eventos.}
+			\precond{Usuário está autentificado e existem eventos próximos a ele.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			\item Usuário solicita eventos na proximidade.
+			\item Sistema exibe os eventos próximos.
+			\item Usuário escolhe um dos eventos.
+			\item Sistema exibe informações sobre o evento.
+			\item Usuário decide se vai participar do evento.
+			\item Sistema cadastra participação no evento, se o usuário desejar, e o caso de uso termina.\bigskip
+			\end{enumerate}
+			\end{boxed}
+			
+			\begin{boxed}{Ver agenda(CSU05)}
+			\sumario{Usuário visualiza agenda mensal com eventos marcados.}
+			\ator{Usuário procurando eventos.}
+			\precond{Usuário está autentificado.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			\item Usuário solicita eventos marcados com participação.
+			\item Sistema exibe calendário com datas de participação em um evento.
+			\item Usuário seleciona um data.
+			\item Sistema exibi lista com eventos que o usuário participa.
+			\item Usuário visualiza os eventos e o caso de uso termina.
+			\end{enumerate}
+			\end{boxed}
+			
+			\begin{boxed}{Criar grupo (CSU06)}
+			\sumario{Usuário cria um grupo para compartilhar eventos}
+		 	\ator{Usuário padrão }
+			 \precond{Usuário está autentificado.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			\item Usuário solicita criação do grupo.
+			\item Sistema exibe formulário com informações exigidas.
+			\item Usuário fornece as informações.
+			\item Sistema cadastra o grupo e o caso de uso termina.
+			\end{enumerate}
+			\end{boxed}
+			
+			\begin{boxed}{Gerenciar grupo (CSU07)}
+		  	\sumario{Usuário edita informações do grupo.}
+			 \ator{Administrador de grupo.}
+			 \precond{Usuário está autentificado e é adminstrador do grupo.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			\item Usuário solicita lista de grupos em que ele participa.
+			\item Sistema exibe os grupos.
+			\item Usuário seleciona grupo em que ele é adminstrador.
+			\item Sistema exibe informações do grupo
+			\item Usuário faz alterações no grupo.
+			\item Sistema registra as operações e o caso de uso termina.
+			\end{enumerate}
+			\end{boxed}
+			
+			\begin{boxed}{Gerenciar categorias (CSU08)}
+			\sumario{Adminstrador do sistema cadastra ou edita categorias.}
+			\ator{Administrador do sistema.}
+			\precond{Usuário está autentificado e é adminstrador do sistema.}
+			\fluxo
+			\begin{enumerate}[itemsep=0mm]
+			\item Administrador solicita lista de categoria.
+			\item Sistema exibe todas as categorias.
+			\item Usuário seleciona uma categoria e informa o que quer fazer com ela.
+			\item Sistema cadastra as alterações e o caso de uso termina.
+			\end{enumerate}
+			\end{boxed}
+				
+			
+				\section{Regras de negócio} 
+				
+				\par As regras de negócio também foram feitas, mas a maior parte delas ainda não foi pensada. As regras podem ser conferidas abaixo:
+			
+				\begin{center}
+			   	 \begin{tabular}{|l|l|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Cancelamento ou alteração de evento (RN01)}}
+				}  \\
+				\hline
+			
+				Descrição & Ao editar ou cancelar um evento todos os usuários participantes serão notificados. \\ 
+			   
+			    	\hline
+			   	 \end{tabular} 
+			    	\end{center}
+			
+				\begin{center}
+			   	 \begin{tabular}{|l|l|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Restrição do número de eventos (RN02)}}
+				}  \\
+				\hline
+			
+				Descrição & Cada usuário só pode cadastrar 2 eventos ao mesmo tempo. \\ 
+			   
+			    	\hline
+			   	 \end{tabular} 
+			    	\end{center}
+			
+				\begin{center}
+			   	 \begin{tabular}{|l|l|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Restrição do número de estabelecimentos (RN03)}}
+				}  \\
+				\hline
+			
+				Descrição & Cada usuário só pode divulgar um estabelecimento. \\ 
+			   
+			    	\hline
+			   	 \end{tabular} 
+			    	\end{center}
+			
+				\begin{center}
+			   	 \begin{tabular}{|l|p{0.8\linewidth}|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Restrição de local do evento (RN04)}}
+				}  \\
+				\hline
+			
+				Descrição & Ao criar um evento em um local que já foi criado, o sistema irá gerar um alerta notificando que já existem um evento naquele ambiente. \\ 
+			   
+			    	\hline
+			   	 \end{tabular} 
+			    	\end{center}
+			
+				\begin{center}
+			   	 \begin{tabular}{|l|p{0.8\linewidth}|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Restrição de eventos no mapa (RN05)}}
+				}  \\
+				\hline
+			
+				Descrição & Os eventos que aparecem no mapa pertecem às categorias favoritados e obedecem a um raio de alcance determinado pelo usuário. \\ 
+			   
+			    	\hline
+			   	 \end{tabular} 
+			    	\end{center}
+			
+				\begin{center}
+			   	 \begin{tabular}{|l|p{0.8\linewidth}|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Restrição de horário de funcionamento (RN06)}}
+				}  \\
+				\hline
+			
+				Descrição & Um estabelecimento pode ter no máximo 4 horários de funcionamento. \\ 
+			   
+			    	\hline
+			   	\end{tabular} 
+			    \end{center}
+			    
+			    \begin{center}
+			   	 \begin{tabular}{|l|p{0.8\linewidth}|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Restrição de sobre conteúdo publicado no grupo (RN07)}}
+				}  \\
+				\hline
+			
+				Descrição & O administrador do grupo pode restringir a categoria dos eventos publicados no grupo. \\ 
+			   
+			    	\hline
+			   	\end{tabular} 
+			    \end{center}
+			    
+			
+			
+			
+				\section{Classes de domínio} \bigskip
+			As classes de domínio do sistema foram feitas com base nos casos de uso e para suportar as regras de negócio, a única exceção são os relacionamentos todo-parte que podem ser lidos dos dois lados - Ex.: Um evento tem vários participantes e um usuário participa de vários eventos. O diagrama irá ser corrigido em um novo ciclo de analise de projeto. O diagrama pode ser visto na próxima página:
+			 
+				\begin{center}
+				\begin{figure}[h]
+				\includegraphics[width=\textwidth]{Diagrama.png}
+				\caption{Diagrama de classes do sistema}
+				\end{figure}
+				\end{center}
+	As classes não formam formadas a partir da identificação dirigida ás responsabilidades, no entanto, isso ajudou na identificação ou concretização das classes. Os cartões CRC podem ser conferidos abaixo:
 	
-	A ideia consiste em projetar um aplicativo de divulgação de eventos e novos estabelecimentos, por meio de cadastros feitos pelo usuário.
-	Quando o usuário assumi o papel de divulgador de eventos/estabelecimentos, suas atribuições são:\medskip
-	\begin{easylist}[itemize]
-	& Divulgar um evento/estabelecimento.
-	& Gerenciar seu(s) eventos/estabelecimento.
-	& Ver histórico de eventos realizados por ele.
-	\end{easylist}\medskip
-	Ao divulgar um evento/estabelecimento o usuário deve dizer o que quer divulgar e fornecer o nome do evento, o horário, a localização, uma imagem do evento, uma indicação se o evento é público ou privado e, opcionalmente, observações sobre o evento. As tela que ele usurá para fazer isso serão parecidas com essa:
-	% colocar tela
-	\bigskip
-	
-	\begin{center}
-	\includegraphics[scale=0.25]{ECV.png}
-	\end{center}
-	
-	\bigskip
-	Ao final do procedimento o evento estará disponível para que os outros usuários que tenham acesso a ele vejam e possam sinalizar sua participação e compartilhar o evento.  
-	
-	Uma vez divulgado o evento ele poderá ser gerenciado - cancelado ou editado. A tela para gerenciar o estabelecimento será a mesma usada para gerenciar os eventos. O protótipo se encontra abaixo:
-	
-	
-	O histórico de eventos realizados pelo divulgador estará disponível ao divulgar seu primeiro evento. Ao acessar esse menu, o usuário poderá ver todas as informações do eventos que já realizou. A tela onde as duas últimas operações serão realizadas será um menu drop-down que será apresentado junto com as operações do papel a seguir.
-	
-	Os eventos divulgados no sistema serão usados por pessoas que estão procurando lugares para sair, nesse papel as atribuições do usuário serão as seguintes:\medskip
-	\begin{easylist}[itemize]
-	& Ver eventos disponíveis na região.
-	& Favoritar categorias de evento.
-	& Ver agenda de eventos.
-	& Ver histórico de eventos.
-	\end{easylist}\medskip
-	
-	Para ver os eventos o usuário se utilizará de um mapa com coordenadas pré-configuradas para seu local (ou para o evento mais próximo). Os pontos no mapa, possivelmente, terão a mesmo tamanho, pois não queremos que um evento seja mais chamativo que outro, porém ainda será discutido como irão aparecer os eventos de categorias marcadas como favorita ou normal. O protótipo de tela para essa funcionalidade se encontra abaixo:
-	% colocar tela
-	As categorias favoritas vão servir para cada usuário ser notificado de eventos recentes que eles poderiam gostar. Na aba principal ele poderá ver todas as categorias e marcar as que ele mais gosta, como pode ser visto na imagem: 
-	% colocar tela
-	Como o aplicativos é de eventos, em geral é natural que o usuário queira ter alguma maneira de se lembrar de onde tem que ir. Para isso iremos dispor de uma agenda que conterá as datas do eventos que ele marcou presença. Além disso um aplicativo irá disparar uma notificação em determinado tem antes do evento. A tela será baseado no protótipo abaixo:
-	% colocar tela
-	Também é comum que uma pessoa queira se lembrar de onde ela foi determinado dia, essa funcionalidade estará disponível no sistema. A imagem abaixo demonstra como isso será feito.
-	% colocar tela 
-	 
-	\section{Casos de uso} \bigskip
-
-	Os casos de uso foram feitos com base no recursos essenciais do sistema, o diagrama foi feito utilizando a ferramenta Astah. O DCU está contido na imagem abaixo.
-
-	% colocar tela 
-
-	Alguns casos de uso estão documentados usando uma descrição numerada extendida com grau de detalhamento essencial, isso tudo está descrito abaixo: 
-
-	\begin{boxed}{Divulgar evento (CSU01)}
-	\sumario{Usuário cadastra um novo evento ao sistema.}
-	\ator{Divulgador}
-	\precond{Usuário está autentificado}
-	\fluxo
-	\begin{enumerate}[itemsep=0mm]
-	\item Usuário solicita o cadastro de um novo evento.
-	 \item Sistema exibe formulário de cadastramento.
-	\item Usuário fornece os dados necessário.
-	 \item Sistema cadastra novo evento e o caso de uso termina.
-	\end{enumerate}
-	\end{boxed}
-
-
-	\begin{boxed}{Gerenciar eventos (CSU02)}
-	\sumario{Usuário consultar eventos criados por ele.}
-	\ator{Divulgador.}
-	\precond{Usuário está autentificado e já criou no mínimo um evento.}
-	\fluxo
-	\begin{enumerate}[itemsep=0mm]
-	 \item Usuário solicita ao sistema eventos criados por ele.
-	 \item Sistema exibi uma lista de eventos cadastrados pelo usuário.
-	 \item Usuário seleciona um dos eventos.
-	 \item Sistema exibe as informações sobre o evento.
-	 \item Usuário cancela o evento ou edita as informações e o caso de uso termina.\bigskip
-	\end{enumerate}
-	\end{boxed}
-
-	\begin{boxed}{Ver histórico de eventos (CSU03)}
-	\sumario{Usuário acessa informações sobre eventos que ele realizou.}
-	\ator{Divulgador}
-	\precond{Usuário está autentificado e já criou no mínimo um evento.}
-	\fluxo
-
-	1. Usuário solicita ao sistema eventos já realizados por ele.
-
-	2. Sistema exibi lista de eventos.
-
-	3. Usuário seleciona um dos eventos.
-
-	4. Sistema exibe as informações sobre o evento.
-
-	5. Usuário visualiza as informações e o caso de uso termina.
-
-	\end{boxed}
-	\begin{boxed}{Participar de  eventos (CSU04)}
-	\sumario{Usuário visualiza eventos próximos a ele.}
-	\ator{Usuário procurando eventos.}
-	
-	\precond{Usuário está autentificado e existem eventos próximos a ele.}
-
-	\fluxo
-	
-	1. Usuário solicita eventos na proximidade.
-	
-	2. Sistema exibe os eventos próximos.
-	
-	3. Usuário escolhe um dos eventos.
-	
-	4. Sistema exibe informações sobre o evento.
-	
-	5. Usuário decide se vai participar do evento.
-	
-	6. Sistema cadastra participação no evento, se o usuário desejar, e o caso de uso termina.\bigskip
-	\end{boxed}
-	\begin{boxed}{Ver agenda(CSU05)}
-	
-	\sumario{Usuário visualiza agenda mensal com eventos marcados.}
-	
-	\ator{Usuário procurando eventos.}
-	
-	\precond{Usuário está autentificado.}
-	
-	\fluxo
-	
-	1. Usuário solicita eventos marcados com participação.
-	
-	2. Sistema exibe calendário com datas de participação em um evento.
-	
-	3. Usuário seleciona um data.
-	
-	4. Sistema exibi lista com eventos que o usuário participa.
-	
-	5. Usuário visualiza os eventos e o caso de uso termina.
-	\end{boxed}
-	\begin{boxed}{Criar grupo (CSU06)}
-	\sumario{Usuário cria um grupo para compartilhar eventos}
- 	\ator{Usuário padrão }
-	 \precond{Usuário está autentificado.}
-	\fluxo
-
-	1. Usuário solicita criação do grupo.
-
-	2. Sistema exibe formulário com informações exigidas.
-
-	3. Usuário fornece as informações.
-
-	4. Sistema cadastra o grupo e o caso de uso termina.
-
-	\end{boxed}
-	\begin{boxed}{Gerenciar grupo (CSU07)}
-	
-  	\sumario{Usuário edita informações do grupo.}
-	
-	 \ator{Administrador de grupo.}
-	
-	 \precond{Usuário está autentificado e é adminstrador do grupo.}
-	
-	\fluxo
-	
-	1. Usuário solicita lista de grupos em que ele participa.
-
-	2. Sistema exibe os grupos.
-
-	3. Usuário seleciona grupo em que ele é adminstrador.
-
-	4.  Sistema exibe informações do grupo
-
-	5. Usuário faz alterações no grupo.
-
-	6. Sistema registra as operações e o caso de uso termina.
-
-	\end{boxed}
-	\begin{boxed}{Gerenciar categorias (CSU08)}
-	
-	\sumario{Adminstrador do sistema cadastra ou edita categorias.}
-	
-	\ator{Administrador do sistema.}
-	
-	\precond{Usuário está autentificado e é adminstrador do sistema.}
-	
-	\fluxo
-	
-	1. Administrador solicita lista de categoria.
-
-	2. Sistema exibe todas as categorias.
-
-	3. Usuário seleciona uma categoria e informa o que quer fazer com ela.
-
-	4. Sistema cadastra as alterações e o caso de uso termina.
-
-	\end{boxed}
-
-	\section{Regras de negócio} 
-	
-	As regras de negócio também foram feitas, mas a maior parte delas ainda não foi pensada. As regras podem ser conferidas abaixo:
-
-	\begin{center}
-   	 \begin{tabular}{|l|l|}
-	\hline
- 	\multicolumn{2}{|p{\textwidth}|}{
-		{\large \textbf{Cancelamento de evento (RN01)}}
-	}  \\
-	\hline
-
-	Descrição & Ao editar ou cancelar um evento todos os usuários participantes serão notificados. \\ 
-   
-    	\hline
-   	 \end{tabular} 
-    	\end{center}
-
-	\begin{center}
-   	 \begin{tabular}{|l|l|}
-	\hline
- 	\multicolumn{2}{|p{\textwidth}|}{
-		{\large \textbf{Restrição do número de eventos (RN02)}}
-	}  \\
-	\hline
-
-	Descrição & Cada usuário só pode cadastrar 2 eventos ao mesmo tempo. \\ 
-   
-    	\hline
-   	 \end{tabular} 
-    	\end{center}
-	
-	
-
-
-\begin{easylist}[articletoc]
-\end{easylist}
-\end{document}
-% TODO: Fazer CSU04 
+			\begin{center}
+			   	 \begin{tabular}{|p{0.5\linewidth}|p{0.5\linewidth}|}
+				\hline
+			 	\multicolumn{2}{|p{\textwidth}|}{
+					{\large \textbf{Nome da classe}}
+				}  \\
+				\hline
+			
+				\textbf{Usuário} & \textbf{Colaboradores} \\ 
+			  	Saber seu nome &  Anúncio \\
+			  	Divulgar  Anuncio & Evento \\
+			  	Ver histórico de eventos & Categoria \\
+			  	Ver histórico de divulgações & Agenda \\
+			  	Participar de eventos & Local \\
+			  	Favoritar categoria & Grupo \\
+			  	Ver agenda &  AdminGrupo \\
+			  	Saber seu local &  Membro \\ 
+			  	Criar um grupo &  Estabelecimento \\
+				\hline			  
+			  
+			    \hline
+			   	\end{tabular} 
+			    \end{center}
+			
+			
+			\begin{easylist}[articletoc]
+			\end{easylist}
+			\end{document}
